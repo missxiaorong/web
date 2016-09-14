@@ -1,0 +1,33 @@
+body{
+	background:#5bc2d9;
+}
+
+.login-block{
+	display:block;
+	width:40%;
+	background:#e2e2e2;
+	border-radius:10px;
+	padding:30px 0 15px 0;
+	margin:100px auto auto auto;
+}
+
+.block{
+	border:2px solid gray;
+	-webkit-box-shadow: 3px 3px 3px;  
+  -moz-box-shadow: 3px 3px 3px;  
+  box-shadow: 3px 3px 3px;  
+}
+
+.title{
+	text-align:center;
+	margin-bottom:20px
+}
+#register-form{
+	opacity:0;
+}
+
+#errorHint{
+	color:red;
+	font-weight:500;
+	font-size:0.7em;
+}

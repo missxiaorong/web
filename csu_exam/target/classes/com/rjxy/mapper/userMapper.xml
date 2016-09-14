@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rjxy.dao.UserDao">
+	<select id="findUserByLogin" parameterType="java.lang.String" resultType="com.rjxy.entity.User">
+		select * from users where login = #{login}
+	</select>
+	<insert id="addUser" parameterType="com.rjxy.entity.User"  useGeneratedKeys="true" keyProperty="id">
+		insert into users(login,name,passwd) values(#{login},#{name},#{passwd})
+	</insert>
+	<delete id="deleteUser" parameterType="com.rjxy.entity.User">
+		delete from users where login = #{login}
+	</delete>
+	<update id="updateUser" parameterType="com.rjxy.entity.User">
+		update users set login=#{login},name=#{name},passwd=#{passwd},type=#{type},status=#{status},last_login=#{last_login},gmtCreate=#{gmtCreate},gmtModified=#{gmtModified},createById=#{createById},lastModifiedId=#{lastModifiedId} where login = #{login}
+	</update>
+	<select id="findUsersByType" parameterType="java.lang.Integer" resultType="com.rjxy.entity.User">
+		select * from users where type = #{type}
+	</select>
+	<select id="findUsersByStatus" parameterType="java.lang.Integer" resultType="com.rjxy.entity.User">
+		select * from users where status = #{status}
+	</select>
+	<select id="findUsersByCreateById" parameterType="java.lang.Integer" resultType="com.rjxy.entity.User">
+		select * from users where createById = #{createById}
+	</select>
+	<select id="findUsersByCreateGmtCreate" resultType="com.rjxy.entity.User">
+		select * from users where gmtCreate between #{0} and #{1}
+	</select>
+</mapper>
